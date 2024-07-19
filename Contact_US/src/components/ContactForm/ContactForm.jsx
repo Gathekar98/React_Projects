@@ -3,14 +3,19 @@ import { MdEmail, MdMessage } from "react-icons/md";
 import Button from "../Button/Button";
 import styles from "./ContactForm.module.css";
 import { FaPhoneAlt } from "react-icons/fa";
+import { useState } from "react";
 // import { MdEmail, MdMessage } from "react-icons/md";
 
 const ContactForm = () => {
+  const [name, setName] = useState("Ashwini");
+  const [email, setEmail] = useState("ashwinigathekar@gmail.com");
+  const [text, setText] = useState("hello i am front end developer trainee");
+
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log("name :" + event.target[0].value);
-    console.log("email :" + event.target[1].value);
-    console.log("text :" + event.target[2].value);
+    setName(event.target[0].value);
+    setEmail(event.target[1].value);
+    setText(event.target[2].value);
   };
 
   return (
@@ -43,6 +48,11 @@ const ContactForm = () => {
           </div>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <Button text="SUBMIT BUTTON" />
+          </div>
+          <div>
+            <p>
+              {name} {email} {text}
+            </p>
           </div>
         </form>
       </div>
